@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AlloyTemplates;
+using Microsoft.AspNetCore.Http;
 
 namespace eShopLegacyMVC
 {
@@ -29,11 +31,13 @@ namespace eShopLegacyMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews(ConfigureMvcOptions);
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            HttpContextHelper.Initialize(app.ApplicationServices.GetRequiredService<IHttpContextAccessor>());
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
