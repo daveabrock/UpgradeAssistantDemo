@@ -2,7 +2,6 @@
 using log4net;
 using System.IO;
 using System.Net;
-using System.Web.Mvc;
 
 namespace eShopLegacyMVC.Controllers
 {
