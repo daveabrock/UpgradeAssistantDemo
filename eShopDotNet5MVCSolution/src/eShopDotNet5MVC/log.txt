@@ -340,3 +340,21 @@
 2021-03-18 19:56:49.173 -05:00 [DBG] Project C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj not yet converted
 2021-03-18 19:56:49.191 -05:00 [DBG] Step Convert project file to SDK style initialized
 2021-03-18 19:56:49.193 -05:00 [DBG] Identified upgrade step Microsoft.DotNet.UpgradeAssistant.Steps.ProjectFormat.TryConvertProjectConverterStep as the next step
+2021-03-18 19:59:21.539 -05:00 [INF] Applying upgrade step Convert project file to SDK style
+2021-03-18 19:59:21.544 -05:00 [INF] Converting project file format with try-convert
+2021-03-18 19:59:21.548 -05:00 [VRB] Starting process 'C:\Users\davea\.dotnet\tools\try-convert.exe --no-backup --force-web-conversion --keep-current-tfms -p "C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj"'
+2021-03-18 19:59:24.917 -05:00 [INF] [try-convert] C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj contains a reference to System.Web, which is not supported on .NET Core. You may have significant work ahead of you to fully port this project.
+2021-03-18 19:59:24.922 -05:00 [INF] [try-convert] 'C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj' is a legacy web project and/or reference System.Web. Legacy Web projects and System.Web are unsupported on .NET Core. You will need to rewrite your application or find a way to not depend on System.Web to convert this project.
+2021-03-18 19:59:28.254 -05:00 [INF] [try-convert] This project has an unrecognized custom import which may need reviewed after conversion: Microsoft.ApplicationInsights.DependencyCollector.targets
+2021-03-18 19:59:28.257 -05:00 [INF] [try-convert] This project has an unrecognized custom import which may need reviewed after conversion: Microsoft.ApplicationInsights.PerfCounterCollector.targets
+2021-03-18 19:59:28.260 -05:00 [INF] [try-convert] This project has an unrecognized custom import which may need reviewed after conversion: Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets
+2021-03-18 19:59:28.262 -05:00 [INF] [try-convert] This project has an unrecognized custom import which may need reviewed after conversion: Microsoft.ApplicationInsights.WindowsServer.targets
+2021-03-18 19:59:28.264 -05:00 [INF] [try-convert] This project has an unrecognized custom import which may need reviewed after conversion: Microsoft.ApplicationInsights.Web.targets
+2021-03-18 19:59:29.788 -05:00 [INF] [try-convert] Conversion complete!
+2021-03-18 19:59:31.177 -05:00 [DBG] ["Failure"] Problem loading file in MSBuild workspace Msbuild failed when processing the file 'C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj' with message: C:\Program Files\dotnet\sdk\5.0.201\Microsoft.CSharp.CurrentVersion.targets: (135, 9): Could not find rule set file "ManagedMinimumRules.ruleset".
+2021-03-18 19:59:31.193 -05:00 [INF] Project file converted successfully! The project may require additional changes to build successfully against the new .NET target.
+2021-03-18 19:59:31.196 -05:00 [VRB] Starting process 'dotnet restore "C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj"'
+2021-03-18 19:59:36.062 -05:00 [DBG] [dotnet-restore]   Determining projects to restore...
+2021-03-18 19:59:36.633 -05:00 [DBG] [dotnet-restore]   Restored C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj (in 372 ms).
+2021-03-18 19:59:37.912 -05:00 [DBG] ["Failure"] Problem loading file in MSBuild workspace Msbuild failed when processing the file 'C:\code\UpgradeAssistantDemo\eShopDotNet5MVCSolution\src\eShopDotNet5MVC\eShopDotNet5MVC.csproj' with message: C:\Program Files\dotnet\sdk\5.0.201\Microsoft.CSharp.CurrentVersion.targets: (135, 9): Could not find rule set file "ManagedMinimumRules.ruleset".
+2021-03-18 19:59:38.152 -05:00 [INF] Upgrade step Convert project file to SDK style applied successfully
