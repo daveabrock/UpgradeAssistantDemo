@@ -2,6 +2,7 @@
 using log4net;
 using System.IO;
 using System.Net;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eShopLegacyMVC.Controllers
@@ -12,11 +13,13 @@ namespace eShopLegacyMVC.Controllers
 
         public const string GetPicRouteName = "GetPicRouteTemplate";
 
-        private ICatalogService service;
+        private ICatalogService _service;
+        private readonly IWebHostEnvironment _host;
 
-        public PicController(ICatalogService service)
+        public PicController(ICatalogService service, IWebHostEnvironment host)
         {
-            this.service = service;
+            _service = service;
+            _host = host;
         }
 
         // GET: Pic/5.png
@@ -28,14 +31,15 @@ namespace eShopLegacyMVC.Controllers
 
             if (catalogItemId <= 0)
             {
-                return new StatusCodeResult(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
 
-            var item = service.FindCatalogItem(catalogItemId);
+            var item = _service.FindCatalogItem(catalogItemId);
 
             if (item != null)
             {
-                var webRoot = Server.MapPath("~/Pics");
+                var webRoot = $"{_host.ContentRootPath}/Pics";
+                //var webRoot = Server.MapPath("~/Pics");
                 var path = Path.Combine(webRoot, item.PictureFileName);
 
                 string imageFileExtension = Path.GetExtension(item.PictureFileName);
@@ -46,7 +50,7 @@ namespace eShopLegacyMVC.Controllers
                 return File(buffer, mimetype);
             }
 
-            return HttpNotFound();
+            return NotFound();
         }
 
         private string GetImageMimeTypeFromImageFileExtension(string extension)
